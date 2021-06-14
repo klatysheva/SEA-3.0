@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons>
+    <person>
+        <salutation>Mr</salutation>
+        <name>Paul</name>
+        <surname>Paulsen</surname>
+    </person>
+    <person>
+        <salutation>Mrs</salutation>
+        <name>Paulina</name>
+        <surname>Paulsen</surname>
+    </person>
+</persons>
