@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.net.URL;
+
 //может создавать из джава объектов различные файлы
 @Controller
 public class PersonRestController {
@@ -20,7 +22,8 @@ public class PersonRestController {
     }
 
     //URL:"http://localhost:8080/allpersons"
-    @GetMapping("/allpersons")
+    /** @see URL: <a href="http://localhost:8080/json/persons/all">http://localhost:8080/json/persons/all</a> */
+    @GetMapping("/json/persons/all")
     @ResponseBody
     public String getAllPersons() {
         Persons persons = personService.getAllPersons();
@@ -48,5 +51,18 @@ public class PersonRestController {
                 "  ]\n" +
                 "}";
         return string5;
+    }
+
+    //URL:"http://localhost:8080/allpersons"
+    @GetMapping("/json/persons/size")
+    @ResponseBody
+    public String getSize() {
+        int size = personService.getSize();
+
+        String string = String.format("{\n"
+                + "	\"size\": %d\n"
+                + "}",size);
+        return string;
+
     }
 }
