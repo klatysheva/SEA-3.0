@@ -22,7 +22,6 @@ function getImg(salutation) {
 function onInputClick(event) {
 	event.preventDefault();      // verhindert dass das event von Browser verwendet wird (verhindert GET-Request)
 	console.log("click");
-
 	var salutation = document.getElementById("id001").value;
 	console.log(salutation);
 	var name = document.getElementById("id002").value;
@@ -30,10 +29,10 @@ function onInputClick(event) {
 	var surname = document.getElementById("id003").value;
 	console.log(surname);
 
-	var jsonDataString = `{"salutation": ${salutation}, "name": "${name}", "surname": "${surname}"}`;
+	var jsonDataString = `{"name": "${name}", "surname": "${surname}", "salutation": "${salutation}"}`;
 		console.log(jsonDataString);
 
-	fetch("http://localhost:8080/submitPerson", {
+	fetch("http://localhost:8080/json/person", {
 		method: 'POST',  // or PUT
 		body: jsonDataString,
 		headers: {
@@ -68,6 +67,6 @@ function getTxtFromJsonAndPackInHTML(myjson) {
 	}
 }
 
-fetch("http://localhost:8080/allpersons")
+fetch("http://localhost:8080/json/persons/all")
 	.then(getJson) 					  	 // entspricht: .then( irgendwas => irgendwas.json() )
 	.then(getTxtFromJsonAndPackInHTML)  // entpricht: cell.textContent = myjson.persons[0].vorname);

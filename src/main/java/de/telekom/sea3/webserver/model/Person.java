@@ -5,7 +5,7 @@ import java.util.Scanner;
 import static de.telekom.sea3.webserver.model.Color.*;
 
 public class Person {
-    private long id = -1;
+    //private long id = -1;
     private Salutation salutation;
     private String firstname;
     private String lastname;
@@ -13,17 +13,17 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
+//    public Person(String firstname, String lastname) {
+//        this.firstname = firstname;
+//        this.lastname = lastname;
+//    }
 
-    public Person(long id, Salutation salutation, String lastname, String firstname) {
-        this.id = id;
-        this.salutation = salutation;
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
+//    public Person(long id, Salutation salutation, String lastname, String firstname) {
+//        this.id = id;
+//        this.salutation = salutation;
+//        this.firstname = firstname;
+//        this.lastname = lastname;
+//    }
 
     public Person(Salutation salutation, String lastname, String firstname) {
         this.salutation = salutation;
@@ -61,9 +61,9 @@ public class Person {
         }
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    //public void setId(long id) {
+    //    this.id = id;
+    //}
 
     public String getFirstname() {
         return firstname;
@@ -77,9 +77,9 @@ public class Person {
         return salutation;
     }
 
-    public long getId() {
-        return id;
-    }
+    //public long getId() {
+        //return id;
+    //}
 
     @Override
     public boolean equals(Object obj) {
@@ -95,6 +95,6 @@ public class Person {
             return false;
         }
         Person person = (Person) obj; // cast to Person
-        return ((person.getId() == this.getId()) && person.getFirstname().equals(this.firstname) && person.getLastname().equals(this.lastname) && person.getSalutation().equals(this.salutation));
+        return (/*(person.getId() == this.getId()) && */person.getFirstname().equals(this.firstname) && person.getLastname().equals(this.lastname) && person.getSalutation().equals(this.salutation));
     }
 }

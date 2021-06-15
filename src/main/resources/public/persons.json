@@ -1,19 +1,16 @@
 {
   "persons": [
     {
-      "id": "JSON_001",
       "name": "JSON_Paul",
       "surname": "JSON_Paulsen",
       "salutation": "JSON_Mr"
     },
     {
-      "id": "JSON_002",
       "name":"JSON_Paulina",
       "surname":"JSON_Paulsen",
       "salutation":"JSON_Mrs"
     },
     {
-      "id": "JSON_003",
       "name":"JSON_Sam",
       "surname":"JSON_Smith",
       "salutation":"JSON_Mr"
