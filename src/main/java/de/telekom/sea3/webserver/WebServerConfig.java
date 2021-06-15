@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 
 public class WebServerConfig {
-    @Bean
-    public Cat cat() {
-        return new Cat("Susi");
-    //return Class.forName("de.telekom.sea3.webserver.Cat").newInstance();
-    }
+//    @Bean
+//    public Cat cat() {
+//        return new Cat("Susi");
+//    //return Class.forName("de.telekom.sea3.webserver.Cat").newInstance();
+//    }
 }
 

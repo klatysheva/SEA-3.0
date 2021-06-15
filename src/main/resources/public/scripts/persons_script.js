@@ -33,7 +33,7 @@ function onInputClick(event) {
 	var jsonDataString = `{"salutation": ${salutation}, "name": "${name}", "surname": "${surname}"}`;
 		console.log(jsonDataString);
 
-	fetch("http://localhost:63342/submitPerson", {
+	fetch("http://localhost:8080/submitPerson", {
 		method: 'POST',  // or PUT
 		body: jsonDataString,
 		headers: {
@@ -68,6 +68,6 @@ function getTxtFromJsonAndPackInHTML(myjson) {
 	}
 }
 
-fetch("http://localhost:8080/persons.json")
+fetch("http://localhost:8080/allpersons")
 	.then(getJson) 					  	 // entspricht: .then( irgendwas => irgendwas.json() )
 	.then(getTxtFromJsonAndPackInHTML)  // entpricht: cell.textContent = myjson.persons[0].vorname);
