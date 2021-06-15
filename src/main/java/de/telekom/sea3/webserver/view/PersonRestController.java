@@ -19,7 +19,7 @@ public class PersonRestController {
         this.personService = personService;
     }
 
-    //URL:"http://localhost:8080/size"
+    //URL:"http://localhost:8080/allpersons"
     @GetMapping("/allpersons")
     @ResponseBody
     public String getAllPersons() {

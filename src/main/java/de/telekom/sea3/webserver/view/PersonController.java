@@ -39,32 +39,4 @@ public class PersonController {
         return string5;
     }
 
-//    //URL:"http://localhost:8080/size"
-//    @GetMapping("/allpersons")
-//    @ResponseBody
-//    public String getAllPersons() {
-//        String string5 = "{\n" +
-//                "  \"persons\": [\n" +
-//                "    {\n" +
-//                "      \"id\": \"JSON_001\",\n" +
-//                "      \"name\": \"JSON_Paul\",\n" +
-//                "      \"surname\": \"JSON_Paulsen\",\n" +
-//                "      \"salutation\": \"JSON_Mr\"\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      \"id\": \"JSON_002\",\n" +
-//                "      \"name\":\"JSON_Paulina\",\n" +
-//                "      \"surname\":\"JSON_Paulsen\",\n" +
-//                "      \"salutation\":\"JSON_Mrs\"\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      \"id\": \"JSON_003\",\n" +
-//                "      \"name\":\"JSON_Sam\",\n" +
-//                "      \"surname\":\"JSON_Smith\",\n" +
-//                "      \"salutation\":\"JSON_Mr\"\n" +
-//                "    }\n" +
-//                "  ]\n" +
-//                "}";
-//        return string5;
-//    }
 }
