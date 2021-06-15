@@ -6,6 +6,11 @@ import org.springframework.stereotype.Repository;
 public class PersonRepository {
 
     public PersonRepository() {
+
         System.out.println("A person repository is created: " + this.toString());
+    }
+
+    public int getSize() {
+        return 0;
     }
 }

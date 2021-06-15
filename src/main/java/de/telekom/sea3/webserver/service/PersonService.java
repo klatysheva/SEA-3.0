@@ -15,4 +15,8 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
+    public int getSize() {
+        return personRepository.getSize();
+    }
+
 }
