@@ -65,14 +65,13 @@ public class PersonRestController {
 
     }
 
-    @GetMapping("json/person/{id}")
+    @GetMapping("/json/person/{id}")
     public Person getPerson(@PathVariable ("id") int id) {
         return personService.get(id);
     }
 
-    @PostMapping("json/person")
+    @PostMapping("/json/person")
     public Person addPerson(@RequestBody Person person) {
         return personService.add(person);
-
     }
 }

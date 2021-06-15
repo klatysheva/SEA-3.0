@@ -51,7 +51,7 @@ function getJson(meta) { 	// meta beinhaltet json mit allen kommunikations-metad
 function getTxtFromJsonAndPackInHTML(myjson) {
 
 	var tablePersons = document.getElementById("id_tbl001");
-	var i = 0;
+	var i = 1;
 	for (var laufvariable of myjson.personen) {
 		tablePersons.insertAdjacentHTML("beforeend",
 			"<tr>"
