@@ -1,0 +1,3 @@
+<beans>
+    <bean id = "cat" class = "de.telekom.sea3.webserver.Cat"/>
+</beans>
