@@ -1,16 +1,16 @@
 package de.telekom.sea3.webserver.view;
 
 import de.telekom.sea3.webserver.model.Persons;
+import de.telekom.sea3.webserver.model.Size;
 import de.telekom.sea3.webserver.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URL;
 
 //может создавать из джава объектов различные файлы
-@Controller
+@RestController
 public class PersonRestController {
 
     private PersonService personService;
@@ -24,45 +24,44 @@ public class PersonRestController {
     //URL:"http://localhost:8080/allpersons"
     /** @see URL: <a href="http://localhost:8080/json/persons/all">http://localhost:8080/json/persons/all</a> */
     @GetMapping("/json/persons/all")
-    @ResponseBody
-    public String getAllPersons() {
+    //@ResponseBody
+    public Persons getAllPersons() {
         Persons persons = personService.getAllPersons();
-        //persons.toJson();
-        String string5 = "{\n" +
-                "  \"persons\": [\n" +
-                "    {\n" +
-                "      \"id\": \"JSON_001\",\n" +
-                "      \"name\": \"JSON_Paul\",\n" +
-                "      \"surname\": \"JSON_Paulsen\",\n" +
-                "      \"salutation\": \"JSON_Mr\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"id\": \"JSON_002\",\n" +
-                "      \"name\":\"JSON_Paulina\",\n" +
-                "      \"surname\":\"JSON_Paulsen\",\n" +
-                "      \"salutation\":\"JSON_Mrs\"\n" +
-                "    },\n" +
-                "    {\n" +
-                "      \"id\": \"JSON_003\",\n" +
-                "      \"name\":\"JSON_Sam\",\n" +
-                "      \"surname\":\"JSON_Smith\",\n" +
-                "      \"salutation\":\"JSON_Mr\"\n" +
-                "    }\n" +
-                "  ]\n" +
-                "}";
-        return string5;
+//        String string = "{\n" +
+//                "  \"persons\": [\n" +
+//                "    {\n" +
+//                "      \"id\": \"JSON_001\",\n" +
+//                "      \"name\": \"JSON_Paul\",\n" +
+//                "      \"surname\": \"JSON_Paulsen\",\n" +
+//                "      \"salutation\": \"JSON_Mr\"\n" +
+//                "    },\n" +
+//                "    {\n" +
+//                "      \"id\": \"JSON_002\",\n" +
+//                "      \"name\":\"JSON_Paulina\",\n" +
+//                "      \"surname\":\"JSON_Paulsen\",\n" +
+//                "      \"salutation\":\"JSON_Mrs\"\n" +
+//                "    },\n" +
+//                "    {\n" +
+//                "      \"id\": \"JSON_003\",\n" +
+//                "      \"name\":\"JSON_Sam\",\n" +
+//                "      \"surname\":\"JSON_Smith\",\n" +
+//                "      \"salutation\":\"JSON_Mr\"\n" +
+//                "    }\n" +
+//                "  ]\n" +
+//                "}";
+//        return string;
+        return persons;
     }
 
     //URL:"http://localhost:8080/allpersons"
     @GetMapping("/json/persons/size")
-    @ResponseBody
-    public String getSize() {
-        int size = personService.getSize();
-
-        String string = String.format("{\n"
-                + "	\"size\": %d\n"
-                + "}",size);
-        return string;
+    //@ResponseBody
+    public Size getSize() {
+        return new Size(personService.getSize());
+//        String string = String.format("{\n"
+//                + "	\"size\": %d\n"
+//                + "}",size);
+//        return string;
 
     }
 }
