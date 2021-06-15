@@ -1,10 +1,12 @@
 package de.telekom.sea3.webserver.view;
 
+import de.telekom.sea3.webserver.model.Person;
 import de.telekom.sea3.webserver.model.Persons;
 import de.telekom.sea3.webserver.model.Size;
 import de.telekom.sea3.webserver.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URL;
@@ -63,5 +65,10 @@ public class PersonRestController {
 //                + "}",size);
 //        return string;
 
+    }
+
+    @GetMapping("json/person/{id}")
+    public Person getPerson(@PathVariable ("id") int id) {
+        return personService.get(id);
     }
 }

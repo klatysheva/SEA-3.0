@@ -1,5 +1,6 @@
 package de.telekom.sea3.webserver.service;
 
+import de.telekom.sea3.webserver.model.Person;
 import de.telekom.sea3.webserver.model.Persons;
 import de.telekom.sea3.webserver.repo.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,7 @@ public class PersonService {
         return new Persons();
     }
 
+    public Person get(int id) {
+        return new Person("New", "Person");
+    }
 }
