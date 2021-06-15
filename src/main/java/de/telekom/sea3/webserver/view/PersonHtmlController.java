@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class PersonController {
+public class PersonHtmlController {
     private static final String HTMLTEMPLATE = "<!DOCTYPE html>\n" +
             "<html lang='de''>\n" +
             "  <head>\n" +
@@ -21,7 +21,7 @@ public class PersonController {
     private PersonService personService;
 
     @Autowired
-    public PersonController(PersonService personService) {
+    public PersonHtmlController(PersonService personService) {
         System.out.println("A person controller with person service (" + personService.toString() + ") is created: " + this.toString());
         this.personService = personService;
     }
