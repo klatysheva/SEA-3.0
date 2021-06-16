@@ -1,11 +1,11 @@
 //var para = document.getElementById("id_link001");
 //para.textContent = "Erleben, was verbindet!";
 
-//  fetch("http://localhost:8080/personen.json");
+//  fetch("http://localhost:8080/persons.json");
 //  var cell = document.getElementById("IdSabine");
-//	fetch("personen.json")
+//	fetch("persons.json")
 //		.then( irgendwas => irgendwas.json() )
-//		.then(myjson => console.log(myjson.personen[0].vorname));// json einlesen
+//		.then(myjson => console.log(myjson.persons[0].vorname));// json einlesen
 
 function getImg(salutation) {
 	switch (salutation) {
@@ -29,7 +29,7 @@ function onInputClick(event) {
 	var surname = document.getElementById("id003").value;
 	console.log(surname);
 
-	var jsonDataString = `{"name": "${name}", "surname": "${surname}", "salutation": "${salutation}"}`;
+	var jsonDataString = `{"firstname": "${name}", "lastname": "${surname}", "salutation": "${salutation}"}`;
 		console.log(jsonDataString);
 
 	fetch("http://localhost:8080/json/person", {
@@ -51,19 +51,19 @@ function getJson(meta) { 	// meta beinhaltet json mit allen kommunikations-metad
 function getTxtFromJsonAndPackInHTML(myjson) {
 
 	var tablePersons = document.getElementById("id_tbl001");
-	var i = 1;
-	for (var laufvariable of myjson.personen) {
+	var i = 0;
+	for (var indexVariable of myjson.persons) {
 		tablePersons.insertAdjacentHTML("beforeend",
 			"<tr>"
 			+ `<td> ${++i} </td>`
-			+ "<td><img src='" + getImg(laufvariable.salutation) + "'></td>"
-			+ "<td>" + laufvariable.salutation + "</td>"
-			+ "<td>" + laufvariable.name + "</td>"
-			+ "<td>" + laufvariable.surname + "</td>"
+			+ "<td><img src='" + getImg(indexVariable.salutation) + "'></td>"
+			+ "<td>" + indexVariable.salutation + "</td>"
+			+ "<td>" + indexVariable.firstname + "</td>"
+			+ "<td>" + indexVariable.lastname + "</td>"
 			+ "</tr>")
-			//	document.getElementById("IdAnredeHerr").textContent = laufvariable.anrede;
-			//	document.getElementById("IdVornameMicki").textContent = laufvariable.vorname;
-			//	document.getElementById("IdNachnameMaus").textContent = laufvariable.nachname;
+			//	document.getElementById("IdAnredeHerr").textContent = indexVariable.anrede;
+			//	document.getElementById("IdVornameMicki").textContent = indexVariable.vorname;
+			//	document.getElementById("IdNachnameMaus").textContent = indexVariable.nachname;
 	}
 }
 

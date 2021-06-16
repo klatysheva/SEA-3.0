@@ -11,6 +11,7 @@ public class PersonHtmlController {
     private static final String HTMLTEMPLATE = "<!DOCTYPE html>\n" +
             "<html lang='de''>\n" +
             "  <head>\n" +
+            "    <link rel='shortcut icon' type='image/x-icon' href='images/T.ico'>\n" +
             "    <meta charset='utf-8'>\n" +
             "    <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n" +
             "    <title>Titel</title>\n" +

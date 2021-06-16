@@ -27,11 +27,12 @@ public class PersonService {
     }
 
     public Person get(int id) {
-        return new Person(Salutation.MR,"New", "Person");
+        return new Person("001", "Mr" ,"New", "Person");
     }
 
     public Person add(Person person) {
         personRepository.add(person);
+        System.out.println("Person is added!");
         return person;
     }
 }
