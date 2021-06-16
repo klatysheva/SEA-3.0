@@ -1,11 +1,11 @@
 //var para = document.getElementById("id_link001");
 //para.textContent = "Erleben, was verbindet!";
 
-//  fetch("http://localhost:8080/personen.json");
+//  fetch("http://localhost:8080/persons.json");
 //  var cell = document.getElementById("IdSabine");
-//	fetch("personen.json")
+//	fetch("persons.json")
 //		.then( irgendwas => irgendwas.json() )
-//		.then(myjson => console.log(myjson.personen[0].vorname));// json einlesen
+//		.then(myjson => console.log(myjson.persons[0].vorname));// json einlesen
 
 function getImg(salutation) {
 	switch (salutation) {
@@ -22,7 +22,6 @@ function getImg(salutation) {
 function onInputClick(event) {
 	event.preventDefault();      // verhindert dass das event von Browser verwendet wird (verhindert GET-Request)
 	console.log("click");
-
 	var salutation = document.getElementById("id001").value;
 	console.log(salutation);
 	var name = document.getElementById("id002").value;
@@ -30,10 +29,10 @@ function onInputClick(event) {
 	var surname = document.getElementById("id003").value;
 	console.log(surname);
 
-	var jsonDataString = `{"salutation": ${salutation}, "name": "${name}", "surname": "${surname}"}`;
+	var jsonDataString = `{"firstname": "${name}", "lastname": "${surname}", "salutation": "${salutation}"}`;
 		console.log(jsonDataString);
 
-	fetch("http://localhost:63342/submitPerson", {
+	fetch("http://localhost:8080/json/person", {
 		method: 'POST',  // or PUT
 		body: jsonDataString,
 		headers: {
@@ -53,21 +52,21 @@ function getTxtFromJsonAndPackInHTML(myjson) {
 
 	var tablePersons = document.getElementById("id_tbl001");
 	var i = 0;
-	for (var laufvariable of myjson.personen) {
+	for (var indexVariable of myjson.persons) {
 		tablePersons.insertAdjacentHTML("beforeend",
 			"<tr>"
 			+ `<td> ${++i} </td>`
-			+ "<td><img src='" + getImg(laufvariable.salutation) + "'></td>"
-			+ "<td>" + laufvariable.salutation + "</td>"
-			+ "<td>" + laufvariable.name + "</td>"
-			+ "<td>" + laufvariable.surname + "</td>"
+			+ "<td><img src='" + getImg(indexVariable.salutation) + "'></td>"
+			+ "<td>" + indexVariable.salutation + "</td>"
+			+ "<td>" + indexVariable.firstname + "</td>"
+			+ "<td>" + indexVariable.lastname + "</td>"
 			+ "</tr>")
-			//	document.getElementById("IdAnredeHerr").textContent = laufvariable.anrede;
-			//	document.getElementById("IdVornameMicki").textContent = laufvariable.vorname;
-			//	document.getElementById("IdNachnameMaus").textContent = laufvariable.nachname;
+			//	document.getElementById("IdAnredeHerr").textContent = indexVariable.anrede;
+			//	document.getElementById("IdVornameMicki").textContent = indexVariable.vorname;
+			//	document.getElementById("IdNachnameMaus").textContent = indexVariable.nachname;
 	}
 }
 
-fetch("http://localhost:8080/persons.json")
+fetch("http://localhost:8080/json/persons/all")
 	.then(getJson) 					  	 // entspricht: .then( irgendwas => irgendwas.json() )
 	.then(getTxtFromJsonAndPackInHTML)  // entpricht: cell.textContent = myjson.persons[0].vorname);
