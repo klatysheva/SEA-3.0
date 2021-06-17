@@ -26,5 +26,14 @@ public class PersonRepository {
         return persons;
     }
 
-
+    public void remove(String id) {
+        persons.remove(Integer.parseInt(id)-1);
+//        for (Person p : persons) {
+//            if (p.getId().equals(id)) {
+//                persons.remove(id);
+//                return true;
+//            }
+//        }
+//        return false;
+    }
 }

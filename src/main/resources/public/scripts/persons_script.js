@@ -19,6 +19,9 @@ function getImg(salutation) {
 	}
 }
 
+
+
+
 function onInputClick(event) {
 	event.preventDefault();      // verhindert dass das event von Browser verwendet wird (verhindert GET-Request)
 	console.log("click");
@@ -39,10 +42,32 @@ function onInputClick(event) {
 			'Content-Type': 'application/json'
         }
 	});
+
+}
+var addPersonButton = document.getElementById("addPersonButton");
+addPersonButton.addEventListener("click",onInputClick);
+
+function onDeletePersonClick(event) {
+	event.preventDefault();      // verhindert dass das event von Browser verwendet wird (verhindert GET-Request)
+	console.log("click");
+
+	var id = document.getElementById("id005").value;
+	console.log(id);
+
+	var jsonDataString = `{"id": "${id}"}`;
+		console.log(jsonDataString);
+
+	var url = `http://localhost:8080/json/person/${id}`
+	console.log(url);
+
+	fetch(url, {
+		method: 'DELETE'
+	}
+	);
 }
 
-var input = document.getElementById("id004");
-input.addEventListener("click",onInputClick);
+var deletePersonButton = document.getElementById("deletePersonButton");
+deletePersonButton.addEventListener("click",onDeletePersonClick);
 
 function getJson(meta) { 	// meta beinhaltet json mit allen kommunikations-metadaten
 	return meta.json();	    // meta.json ist der reine json-inhalt

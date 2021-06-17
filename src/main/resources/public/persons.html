@@ -12,6 +12,7 @@
 
 <body>
 <h2>SEA: Welle 4</h2>
+<hr>
 <table class="table table-dark" id="id_tbl001" >
     <caption>Table 1. SEA: list of participants</caption>
     <tr>
@@ -43,6 +44,7 @@
 <!--        <td id = "id_surname003">-</td>-->
 <!--    </tr>-->
 </table>
+<hr>
 <article>
     <h3><span class="blink"><strong>Join us!</strong></span></h3>
     <form id="submit">
@@ -65,10 +67,25 @@
                 <input type="text" id="id003" name="surnameInputField">
             </div>
             <div class="button">
-                <input type="submit" id="id004" name="submitButton">
+                <input type="submit" id="addPersonButton" name="submitButton" value="Add Person">
             </div>
         </div>
     </form>
 </article>
+<br><br><br><br><br><hr>
+<article>
+    <form id="deletePerson">
+        <div class="main">
+            <div class="field">
+                <label for="id005">Person's id:     </label>
+                <input type="text" id="id005" name="idInputField">
+            </div>
+            <div class="button">
+                <input type="submit" id="deletePersonButton" name="deletePersonButton" value="Delete Person">
+            </div>
+        </div>
+    </form>
+</article>
+<br><br><hr>
 </body>
 </html>

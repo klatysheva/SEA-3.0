@@ -30,18 +30,6 @@ public class PersonRestController {
 //        String string = "{\n" +
 //                "  \"persons\": [\n" +
 //                "    {\n" +
-//                "      \"id\": \"JSON_001\",\n" +
-//                "      \"name\": \"JSON_Paul\",\n" +
-//                "      \"surname\": \"JSON_Paulsen\",\n" +
-//                "      \"salutation\": \"JSON_Mr\"\n" +
-//                "    },\n" +
-//                "    {\n" +
-//                "      \"id\": \"JSON_002\",\n" +
-//                "      \"name\":\"JSON_Paulina\",\n" +
-//                "      \"surname\":\"JSON_Paulsen\",\n" +
-//                "      \"salutation\":\"JSON_Mrs\"\n" +
-//                "    },\n" +
-//                "    {\n" +
 //                "      \"id\": \"JSON_003\",\n" +
 //                "      \"name\":\"JSON_Sam\",\n" +
 //                "      \"surname\":\"JSON_Smith\",\n" +
@@ -73,5 +61,10 @@ public class PersonRestController {
     @PostMapping("/json/person")
     public Person addPerson(@RequestBody Person person) {
         return personService.add(person);
+    }
+
+    @DeleteMapping("/json/person/{id}")
+    public void deletePerson(@PathVariable ("id") String id) {
+        personService.remove(id);
     }
 }
