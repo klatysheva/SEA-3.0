@@ -3,6 +3,7 @@ package de.telekom.sea3.webserver.view;
 import de.telekom.sea3.webserver.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -29,15 +30,21 @@ public class PersonHtmlController {
 
     //URL:"http://localhost:8080/size"
     @GetMapping("/size")
-    @ResponseBody
-    public String getSize() {
-        //int -> String options:
-        //String string1 = Integer.toString(personService.getSize());
-        //String string2 = String.valueOf(personService.getSize());
-        //String string3 = "" + personService.getSize();
-        //String string4 = String.format("%d", personService.getSize());
-        String string5 = String.format(HTMLTEMPLATE, personService.getSize());
-        return string5;
+    public String getSize(Model model) {
+        model.addAttribute("size", personService.getSize());
+        return "size";
+    }
+
+    //URL:"http://localhost:8080/count"
+    @GetMapping("/count")
+    public String getCount() {
+        return "count";
+    }
+
+    @GetMapping("/quest755")
+    public String quest(Model model) {
+        model.addAttribute("name", "Kseniia");
+        return "quest";
     }
 
 }

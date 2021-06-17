@@ -49,6 +49,10 @@ table {
 	background-color: #ffffff;
 
 }
+hr {
+    color: #f9076d;
+    background-color: #f9076d;
+}
 
 th {
 	border: 1px solid #bbc0b8;
