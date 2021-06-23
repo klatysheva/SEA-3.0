@@ -1,6 +1,7 @@
 package de.telekom.sea3.webserver.model;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name="persons")
@@ -24,21 +25,24 @@ public class Person {
     @Column
     private String lastname;
 
-//    @Column
-//    private Date dob;
+    @Column
+    private Date dob;
 
-    public Person(long id, String salutation, String lastname, String firstname) {
+    public Person(long id, String salutation, String lastname, String firstname, Date dob) {
         this.id = id;
         this.salutation = salutation;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.dob = dob;
     }
-    public Person(String salutation, String lastname, String firstname) {
+    public Person(String salutation, String lastname, String firstname, Date dob) {
         this.id =-1;
         this.salutation = salutation;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.dob = dob;
     }
+
     public Person() {
     }
 
@@ -58,6 +62,18 @@ public class Person {
         this.id = id;
     }
 
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
     public String getFirstname() {
         return firstname;
     }
@@ -74,6 +90,10 @@ public class Person {
         return id;
     }
 
+    public Date getDob() {
+        return dob;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) // null check
@@ -88,6 +108,7 @@ public class Person {
             return false;
         }
         Person person = (Person) obj; // cast to Person
-        return ((person.getId() == this.getId()) && person.getFirstname().equals(this.firstname) && person.getLastname().equals(this.lastname) && person.getSalutation().equals(this.salutation));
+        return ((person.getId() == this.getId()) && person.getFirstname().equals(this.firstname) && person.getLastname().equals(this.lastname)
+                && person.getSalutation().equals(this.salutation) && person.getDob().equals(this.dob));
     }
 }

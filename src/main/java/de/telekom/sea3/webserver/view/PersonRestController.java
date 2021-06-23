@@ -24,9 +24,8 @@ public class PersonRestController {
         return personService.save(person);
     }
 
-    @PutMapping("/json/person/{id}")
-    public Person updatePerson(@PathVariable("id") long id, @RequestBody Person person) {
-        System.out.println(id + ";" + person.getId());
+    @PutMapping("/json/person")
+    public Person updatePerson(@RequestBody Person person) {
         return personService.save(person);
     }
 

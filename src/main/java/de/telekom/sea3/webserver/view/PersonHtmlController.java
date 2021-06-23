@@ -28,15 +28,8 @@ public class PersonHtmlController {
         this.personService = personService;
     }
 
-    //URL:"http://localhost:8080/size"
-    @GetMapping("/size")
-    public String getSize(Model model) {
-        model.addAttribute("size", personService.count());
-        return "size";
-    }
-
     @GetMapping("/persons")
-    public String getPersons (Model model)  {
+    public String personsStartPage (Model model)  {
         model.addAttribute("count", personService.count());
         return "persons";
     }

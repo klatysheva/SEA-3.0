@@ -7,7 +7,7 @@ function getTxtFromJsonAndPackInHTML(myjson) {
 
 	var tablePersonsBody = document.getElementById("id_tbl001_tb");
 	var i = 0;
-    tablePersonsBody.innerHTML="";
+    tablePersonsBody.innerHTML=""; // delete old data to re-download the whole table body
 	for (var indexVariable of myjson.persons) {
 		tablePersonsBody.insertAdjacentHTML("beforeend",
 			"<tr>"
@@ -17,6 +17,8 @@ function getTxtFromJsonAndPackInHTML(myjson) {
 			+ "<td>" + indexVariable.salutation + "</td>"
 			+ "<td>" + indexVariable.firstname + "</td>"
 			+ "<td>" + indexVariable.lastname + "</td>"
+			+ "<td>" + indexVariable.dob + "</td>"
+			+ "<td>" + indexVariable.version + "</td>"
 			+ "</tr>")
 	}
 }
@@ -58,8 +60,10 @@ function onInputClick(event) {
 	console.log(name);
 	var surname = document.getElementById("id003").value;
 	console.log(surname);
+	var dob = document.getElementById("idDOB").value;
+	console.log(dob);
 
-	var jsonDataString = `{"firstname": "${name}", "lastname": "${surname}", "salutation": "${salutation}"}`;
+	var jsonDataString = `{"firstname": "${name}", "lastname": "${surname}", "salutation": "${salutation}", "dob": "${dob}"}`;
 		console.log(jsonDataString);
 
 	fetch("http://localhost:8080/json/person", {
@@ -83,11 +87,15 @@ function onUpdateClick(event) {
 	console.log(name);
 	var id = document.getElementById("id004").value;
 	console.log(id);
+	var dob = document.getElementById("idDOB").value;
+	console.log(dob);
+	var version = document.getElementById("idVer").value;
+	console.log(version);
 
-	var jsonDataString = `{"id": "${id}","firstname": "${name}", "lastname": "${surname}", "salutation": "${salutation}"}`;
+	var jsonDataString = `{"id": "${id}","firstname": "${name}", "lastname": "${surname}", "salutation": "${salutation}", "dob": "${dob}", "version": "${version}"}`;
 		console.log(jsonDataString);
 
-	fetch(`http://localhost:8080/json/person/${id}`, {
+	fetch(`http://localhost:8080/json/person`, {
 		method: 'PUT',
 		body: jsonDataString,
 		headers: {

@@ -23,6 +23,8 @@
             <th>Salutation</th>
             <th>Firstname</th>
             <th>Lastname</th>
+            <th>DOB</th>
+            <th>Version</th>
         </tr>
     </thead>
     <tbody id = "id_tbl001_tb">
@@ -58,7 +60,7 @@
 <hr>
 <article>
     <h3><span class="blink"><strong>Join us!</strong></span></h3>
-    <form id="submit">
+    <form id="submit" class="form">
         <div class="main">
             <div class="field">
                 <label for="id001">Salutation:</label>
@@ -78,8 +80,16 @@
                 <input type="text" id="id003" name="surnameInputField">
             </div>
             <div class="field">
+                <label for="idDOB">DOB:  </label>
+                <input type="date" id="idDOB" name="dobInputField">
+            </div>
+            <div class="field">
                 <label for="id004">Id (for update only):  </label>
                 <input type="text" id="id004" name="idInputField">
+            </div>
+            <div class="field">
+                <label for="idVer">Version (for update only):  </label>
+                <input type="text" id="idVer" name="idVerInputField">
             </div>
             <div class="button">
                 <input type="submit" id="addPersonButton" name="addPersonButton" value="Add">
@@ -88,9 +98,9 @@
         </div>
     </form>
 </article>
-<br><br><br><br><br><hr>
+<br><br><br><br><br><br><hr>
 <article>
-    <form id="deletePerson">
+    <form id="deletePerson" class="form">
         <div class="main">
             <div class="field">
                 <label for="id005">Id:     </label>
