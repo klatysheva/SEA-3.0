@@ -1,20 +1,45 @@
 package de.telekom.sea3.webserver.model;
 
-import java.util.Scanner;
+import javax.persistence.*;
 
-import static de.telekom.sea3.webserver.model.Color.*;
+@Entity
+@Table(name="persons")
 
 public class Person {
-    private String id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Version
+    private Long version;
+
+    //@Enumerated(EnumType.ORDINAL/STRING)
+    @Column
     private String salutation;
+
+    @Column
     private String firstname;
+
+    @Column
     private String lastname;
 
-    public Person(String id, String salutation, String lastname, String firstname) {
+//    @Column
+//    private Date dob;
+
+    public Person(long id, String salutation, String lastname, String firstname) {
         this.id = id;
         this.salutation = salutation;
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+    public Person(String salutation, String lastname, String firstname) {
+        this.id =-1;
+        this.salutation = salutation;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+    public Person() {
     }
 
     public void setFirstname(String firstname) {
@@ -29,7 +54,7 @@ public class Person {
         this.salutation = salutation;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,7 +70,7 @@ public class Person {
         return salutation;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 

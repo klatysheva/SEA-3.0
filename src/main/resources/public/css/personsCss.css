@@ -7,8 +7,8 @@ body {
 		"Helvetica Neue", Arial, "Noto Sans";
 	font-size: 1rem;
 	line-height: 1.5;
-	color: #212529;
-	background-color: #F7D1EE;
+	color: #212529; /*black */
+	background-color: #F7D1EE; /*pink */
 }
 
 h2 {
@@ -20,10 +20,12 @@ h4 {
  /*text-align: center; */
  }
 
-p,a { color: #f9076d; }
+a { color: #f9076d; } /*magenta */
+p { color: #212529; } /*magenta */
 
 /* Style of form */
 form {
+width: 25%;
 
 	/*text-align: center; */
 }
@@ -43,12 +45,18 @@ table {
 	vertical-align: middle;
 	width: 80%;
 	margin-bottom: 1rem;
-	color: #204a87;
+	color: #4f453e; /*grey */
 	vertical-align: top;
-	border-color: #888a85;
-	background-color: #ffffff;
-
+	border-color: #888a85; /*grey */
+	background-color: #ffffff; /*white */
 }
+/* .tableFunctions div {display:inline-block;}  */
+
+
+#id_tbl001 caption { /* ADDED */
+  caption-side: top;
+}
+
 hr {
     color: #f9076d;
     background-color: #f9076d;

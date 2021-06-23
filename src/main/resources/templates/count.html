@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="images/T.ico">
-    <title>Titel</title>
+    <title>Count</title>
 </head>
-<body>count: d%</body>
+<body>
+<h3>Person's count: <span th:text="${count}"></span></h3>
+</body>
 </html>

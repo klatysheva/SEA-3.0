@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="css/personsCss.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/T.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>SEA Kurs 3.0</title>
+    <script src="scripts/persons_script.js" type="module"></script>
+</head>
+
+<body>
+<h2>SEA: Welle 4</h2>
+<hr>
+<table class="table table-dark" id="id_tbl001" >
+<!--    <caption>List of SEA participants</caption>-->
+    <thead id = "id_tbl001_th">
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Salutation</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+    </thead>
+    <tbody id = "id_tbl001_tb">
+    <!--    <tr>-->
+    <!--        <td>id_p001</td>-->
+    <!--        <td class="pic" id = "id_img001"><img src="images/man.png" width="40" height="40" alt="Man"></td>-->
+    <!--        <td id = "id_salut001">Mr</td>-->
+    <!--        <td id = "id_name001">Paul</td>-->
+    <!--        <td id = "id_surname001">Paulsen</td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>id_p002</td>-->
+    <!--        <td class="pic" id = "id_img002"><img src="images/woman.png" width="40" height="40" alt="Woman"></td>-->
+    <!--        <td id = "id_salut002">Mrs</td>-->
+    <!--        <td id = "id_name002">Paulina</td>-->
+    <!--        <td id = "id_surname002">Paulsen</td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>id_p003</td>-->
+    <!--        <td class="pic" id = "id_img003"><img src="images/questionMark.png" width="40" height="40" alt="Question"></td>-->
+    <!--        <td id = "id_salut003">-</td>-->
+    <!--        <td id = "id_name003">-</td>-->
+    <!--        <td id = "id_surname003">-</td>-->
+    <!--    </tr>-->
+    </tbody>
+</table>
+<p>Participant's count: <span th:text="${count}"></span></p>
+<div class = "button">
+    <input type="submit" id="refreshTableButton" name="refreshTableButton" value="Refresh">
+    <input type="submit" id="clearTableButton" name="clearTableButton" value="Clear">
+</div>
+
+<hr>
+<article>
+    <h3><span class="blink"><strong>Join us!</strong></span></h3>
+    <form id="submit">
+        <div class="main">
+            <div class="field">
+                <label for="id001">Salutation:</label>
+                <select name="salutation" id="id001">
+                    <option value="-">-</option>
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Miss">Miss</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="id002">Name:     </label>
+                <input type="text" id="id002" name="nameInputField">
+            </div>
+            <div class="field">
+                <label for="id003">Surname:  </label>
+                <input type="text" id="id003" name="surnameInputField">
+            </div>
+            <div class="field">
+                <label for="id004">Id (for update only):  </label>
+                <input type="text" id="id004" name="idInputField">
+            </div>
+            <div class="button">
+                <input type="submit" id="addPersonButton" name="addPersonButton" value="Add">
+                <input type="submit" id="updatePersonButton" name="updatePersonButton" value="Update">
+            </div>
+        </div>
+    </form>
+</article>
+<br><br><br><br><br><hr>
+<article>
+    <form id="deletePerson">
+        <div class="main">
+            <div class="field">
+                <label for="id005">Id:     </label>
+                <input type="text" id="id005" name="idInputField">
+            </div>
+            <div class="button">
+                <input type="submit" id="deletePersonButton" name="deletePersonButton" value="Delete">
+            </div>
+        </div>
+    </form>
+</article>
+<br><br><hr>
+<article>
+    <h3><strong>Links</strong></span></h3>
+    <footer>
+        <ul>
+            <li><a href='http://localhost:8080/count'>Person's count</a></li></li>
+            <li><a href='http://localhost:8080/json/persons/all'>All persons (json format)</a></li></li>
+        </ul>
+    </footer>
+</article>
+<hr>
+
+</body>
+</html>

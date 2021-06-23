@@ -31,16 +31,24 @@ public class PersonHtmlController {
     //URL:"http://localhost:8080/size"
     @GetMapping("/size")
     public String getSize(Model model) {
-        model.addAttribute("size", personService.getSize());
+        model.addAttribute("size", personService.count());
         return "size";
+    }
+
+    @GetMapping("/persons")
+    public String getPersons (Model model)  {
+        model.addAttribute("count", personService.count());
+        return "persons";
     }
 
     //URL:"http://localhost:8080/count"
     @GetMapping("/count")
-    public String getCount() {
+    public String getCount(Model model) {
+        model.addAttribute("count", personService.count());
         return "count";
     }
 
+//  Quest 755 "Spring 03 : Thymeleaf"
     @GetMapping("/quest755")
     public String quest(Model model) {
         model.addAttribute("name", "Kseniia");
