@@ -1,20 +1,38 @@
 package de.telekom.sea3.webserver.model;
 
-import java.util.Scanner;
+import javax.persistence.*;
+import java.sql.Date;
 
-import static de.telekom.sea3.webserver.model.Color.*;
+//indicates that this object will be managed by Spring Data and that its attributes will be converted into columns of DB tables
+@Entity
+@Table(name="persons")
 
 public class Person {
-    private String id;
+
+    // indicates that the attribute should be used as the primary key in the table corresponding to the entity:
+    @Id
+    //indicates that the value of the id will be generated automatically, and incrementally, upon insertion into the database:
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Version
+    private Long version;
+
+    //@Enumerated(EnumType.ORDINAL/STRING)
+    @Column
     private String salutation;
+
+    @Column
     private String firstname;
+
+    @Column
     private String lastname;
 
-    public Person(String id, String salutation, String lastname, String firstname) {
-        this.id = id;
-        this.salutation = salutation;
-        this.firstname = firstname;
-        this.lastname = lastname;
+    @Column
+    private Date dob;
+
+    //Default constructor, getters and setters to make JPA happy.
+    public Person() {
     }
 
     public void setFirstname(String firstname) {
@@ -29,8 +47,20 @@ public class Person {
         this.salutation = salutation;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public void setDob(Date dob) {
+        this.dob = dob;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
+    }
+
+    public Long getVersion() {
+        return version;
     }
 
     public String getFirstname() {
@@ -41,12 +71,14 @@ public class Person {
         return lastname;
     }
 
-    public String getSalutation() {
-        return salutation;
+    public String getSalutation() { return salutation; }
+
+    public long getId() {
+        return id;
     }
 
-    public String getId() {
-        return id;
+    public Date getDob() {
+        return dob;
     }
 
     @Override
@@ -63,6 +95,7 @@ public class Person {
             return false;
         }
         Person person = (Person) obj; // cast to Person
-        return ((person.getId() == this.getId()) && person.getFirstname().equals(this.firstname) && person.getLastname().equals(this.lastname) && person.getSalutation().equals(this.salutation));
+        return ((person.getId() == this.getId()) && person.getFirstname().equals(this.firstname) && person.getLastname().equals(this.lastname)
+                && person.getSalutation().equals(this.salutation) && person.getDob().equals(this.dob));
     }
 }
