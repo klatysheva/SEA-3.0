@@ -3,12 +3,15 @@ package de.telekom.sea3.webserver.model;
 import javax.persistence.*;
 import java.sql.Date;
 
+//indicates that this object will be managed by Spring Data and that its attributes will be converted into columns of DB tables
 @Entity
 @Table(name="persons")
 
 public class Person {
 
+    // indicates that the attribute should be used as the primary key in the table corresponding to the entity:
     @Id
+    //indicates that the value of the id will be generated automatically, and incrementally, upon insertion into the database:
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -28,21 +31,7 @@ public class Person {
     @Column
     private Date dob;
 
-    public Person(long id, String salutation, String lastname, String firstname, Date dob) {
-        this.id = id;
-        this.salutation = salutation;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.dob = dob;
-    }
-    public Person(String salutation, String lastname, String firstname, Date dob) {
-        this.id =-1;
-        this.salutation = salutation;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.dob = dob;
-    }
-
+    //Default constructor, getters and setters to make JPA happy.
     public Person() {
     }
 
@@ -82,9 +71,7 @@ public class Person {
         return lastname;
     }
 
-    public String getSalutation() {
-        return salutation;
-    }
+    public String getSalutation() { return salutation; }
 
     public long getId() {
         return id;

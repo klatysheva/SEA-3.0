@@ -19,7 +19,9 @@ function getTxtFromJsonAndPackInHTML(myjson) {
 			+ "<td>" + indexVariable.lastname + "</td>"
 			+ "<td>" + indexVariable.dob + "</td>"
 			+ "<td>" + indexVariable.version + "</td>"
+//			+ `<td><img class='icon' id='delete${element.id}'src='images/T.ico' onclick='onDeleteClick(${element.id})' title='Delete'></td>`
 			+ "</tr>")
+
 	}
 }
 
@@ -109,13 +111,15 @@ function onUpdateClick(event) {
 function onClearClick(event) {
 	event.preventDefault();      // verhindert dass das event von Browser verwendet wird (verhindert GET-Request)
 	console.log("click");
-
-	fetch("http://localhost:8080/json/persons/deleteall", {
-        method: 'DELETE'
-        }
-	)
+    if (confirm("Are you sure? All data will be deleted.")) {
+        fetch("http://localhost:8080/json/persons/deleteall", {
+            method: 'DELETE'
+            }
+        )
 	.then(refreshTable);
-
+    alert ("All data was deleted!") ;
+} else {
+}
 }
 
 

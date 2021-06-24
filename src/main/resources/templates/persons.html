@@ -28,27 +28,7 @@
         </tr>
     </thead>
     <tbody id = "id_tbl001_tb">
-    <!--    <tr>-->
-    <!--        <td>id_p001</td>-->
-    <!--        <td class="pic" id = "id_img001"><img src="images/man.png" width="40" height="40" alt="Man"></td>-->
-    <!--        <td id = "id_salut001">Mr</td>-->
-    <!--        <td id = "id_name001">Paul</td>-->
-    <!--        <td id = "id_surname001">Paulsen</td>-->
-    <!--    </tr>-->
-    <!--    <tr>-->
-    <!--        <td>id_p002</td>-->
-    <!--        <td class="pic" id = "id_img002"><img src="images/woman.png" width="40" height="40" alt="Woman"></td>-->
-    <!--        <td id = "id_salut002">Mrs</td>-->
-    <!--        <td id = "id_name002">Paulina</td>-->
-    <!--        <td id = "id_surname002">Paulsen</td>-->
-    <!--    </tr>-->
-    <!--    <tr>-->
-    <!--        <td>id_p003</td>-->
-    <!--        <td class="pic" id = "id_img003"><img src="images/questionMark.png" width="40" height="40" alt="Question"></td>-->
-    <!--        <td id = "id_salut003">-</td>-->
-    <!--        <td id = "id_name003">-</td>-->
-    <!--        <td id = "id_surname003">-</td>-->
-    <!--    </tr>-->
+
     </tbody>
 </table>
 <p>Participant's count: <span th:text="${count}"></span></p>
@@ -72,33 +52,34 @@
                 </select>
             </div>
             <div class="field">
-                <label for="id002">Name:     </label>
-                <input type="text" id="id002" name="nameInputField">
+                <label for="id002">Firstname*:     </label>
+                <input type="text" id="id002" name="firstnameInputField" required placeholder="Enter your firstname">
             </div>
             <div class="field">
-                <label for="id003">Surname:  </label>
-                <input type="text" id="id003" name="surnameInputField">
+                <label for="id003">Lastname*:  </label>
+                <input type="text" id="id003" name="lastnameInputField"  required placeholder="Enter your lastname">
             </div>
             <div class="field">
-                <label for="idDOB">DOB:  </label>
-                <input type="date" id="idDOB" name="dobInputField">
+                <label for="idDOB">DOB*:  </label>
+                <input type="date" id="idDOB" name="dobInputField" required>
             </div>
             <div class="field">
-                <label for="id004">Id (for update only):  </label>
-                <input type="text" id="id004" name="idInputField">
+                <label for="id004">Id :  </label>
+                <input type="text" id="id004" name="idInputField" placeholder="Enter id (for update)">
             </div>
             <div class="field">
-                <label for="idVer">Version (for update only):  </label>
-                <input type="text" id="idVer" name="idVerInputField">
+                <label for="idVer">Current version:  </label>
+                <input type="text" id="idVer" name="idVerInputField" placeholder="Enter version (for update)">
             </div>
             <div class="button">
                 <input type="submit" id="addPersonButton" name="addPersonButton" value="Add">
                 <input type="submit" id="updatePersonButton" name="updatePersonButton" value="Update">
             </div>
+            <p>* - mandatory field</p>
         </div>
     </form>
 </article>
-<br><br><br><br><br><br><hr>
+<br><br><br><br><br><br><br><br><br><br><hr>
 <article>
     <form id="deletePerson" class="form">
         <div class="main">
