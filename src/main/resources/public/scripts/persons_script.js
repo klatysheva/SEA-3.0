@@ -19,9 +19,12 @@ function getTxtFromJsonAndPackInHTML(myjson) {
 			+ "<td>" + indexVariable.lastname + "</td>"
 			+ "<td>" + indexVariable.dob + "</td>"
 			+ "<td>" + indexVariable.version + "</td>"
-//			+ `<td><img class='icon' id='delete${element.id}'src='images/T.ico' onclick='onDeleteClick(${element.id})' title='Delete'></td>`
-			+ "</tr>")
-
+//			+ `<td><a href="http://localhost:8080/persons/person/${indexVariable.id}">Edit</a></td>`
+//			+ `<td><span id="editButton${i}">Edit(not implemented)</span></td>`
+			+ `<td><span id="deleteButton${i}">Delete</span></td>`
+			+ "</tr>");
+        //document.getElementById(`editButton${i}`).addEventListener("click", (e) => editById(indexVariable.id));
+        document.getElementById(`deleteButton${i}`).addEventListener("click", (e) => deleteById(indexVariable.id));
 	}
 }
 
@@ -122,6 +125,19 @@ function onClearClick(event) {
 }
 }
 
+function deleteById(id) {
+    var url = `http://localhost:8080/person/delete/${id}`;
+        if (confirm("Are you sure you want to delete the person #" + id + "?")) {
+            fetch(url, {
+                method: 'DELETE'
+            })
+    	    .then(refreshTable);
+        alert ("The person (id = " + id + ") was deleted!") ;
+    } else {
+    }
+
+}
+
 
 function onDeleteClick(event) {
 	event.preventDefault();      // verhindert dass das event von Browser verwendet wird (verhindert GET-Request)
@@ -133,7 +149,7 @@ function onDeleteClick(event) {
 	var jsonDataString = `{"id": "${id}"}`;
 		console.log(jsonDataString);
 
-	var url = `http://localhost:8080/json/person/${id}`
+	var url = `http://localhost:8080/person/delete/${id}`
 	console.log(url);
 
 	fetch(url, {

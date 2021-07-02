@@ -4,6 +4,7 @@ import de.telekom.sea3.webserver.model.Person;
 import de.telekom.sea3.webserver.model.Persons;
 import de.telekom.sea3.webserver.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URL;
@@ -50,10 +51,10 @@ public class PersonRestController {
         return personService.findById(id);
     }
 
-    //URL:"http://localhost:8080/json/person/id"
-    @DeleteMapping("/json/person/{id}")
-    public void deletePerson(@PathVariable ("id") long id) {
+    @DeleteMapping("/person/delete/{id}")
+    public String deletePerson(@PathVariable ("id") long id) {
         personService.deleteById(id);
+        return "redirect:/persons";
     }
 
     //URL:"http://localhost:8080/json/persons/deleteall"
@@ -61,4 +62,13 @@ public class PersonRestController {
     public void deleteAllPersons() {
         personService.deleteAll();
     }
+
+
+    //http://localhost:8080/json/persons/search?text=Adam
+    @GetMapping("/json/persons/search")
+    public Persons searchByText(@RequestParam (name = "text", required = false) String text) {
+        Persons persons = personService.selectPersons(text);
+        return persons;
+    }
 }
+
