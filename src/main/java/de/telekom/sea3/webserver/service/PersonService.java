@@ -48,4 +48,11 @@ public class PersonService {
         personRepository.deleteAll();
     }
 
+    public Persons selectPersons(String text) {
+        Persons ps = new Persons();
+        for (Person p : personRepository.selectPersons(text)) {
+            ps.getPersons().add(p);
+        }
+        return ps;
+    }
 }
